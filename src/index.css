@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* —— Wider desktop / ultrawide: scale past default max-w-7xl (1280px) —— */
+.ac-shell {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+}
+
+@media (min-width: 1536px) {
+  .ac-shell {
+    max-width: min(90rem, calc(100vw - 4rem));
+  }
+}
+
+@media (min-width: 1920px) {
+  .ac-shell {
+    max-width: min(1760px, calc(100vw - 6rem));
+  }
+}
+
+/* Slightly tighter than full shell (pillars, character grid) */
+.ac-shell-tight {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 72rem;
+}
+
+@media (min-width: 1536px) {
+  .ac-shell-tight {
+    max-width: min(82rem, calc(100vw - 4rem));
+  }
+}
+
+@media (min-width: 1920px) {
+  .ac-shell-tight {
+    max-width: min(1600px, calc(100vw - 6rem));
+  }
+}
+
+/* Timeline column width on very wide screens */
+.ac-shell-reading {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 64rem;
+}
+
+@media (min-width: 1800px) {
+  .ac-shell-reading {
+    max-width: min(76rem, calc(100vw - 8rem));
+  }
+}
+
+/* —— Hero: full viewport when tall enough; stack + scroll when height is short —— */
+@media (min-height: 621px) {
+  .ac-hero {
+    min-height: 100dvh;
+    min-height: 100svh;
+  }
+}
+
+@media (max-height: 620px) {
+  .ac-hero {
+    min-height: unset;
+    padding-top: clamp(4.5rem, 15vh, 6rem);
+    padding-bottom: 1.5rem;
+  }
+
+  .ac-hero-scroll {
+    height: auto;
+    min-height: 0;
+    justify-content: flex-start;
+  }
+
+  .ac-hero-anim-tag {
+    display: none;
+  }
+
+  .ac-hero-scroll h1:first-of-type {
+    font-size: clamp(1.75rem, 8vw, 3.5rem) !important;
+    line-height: 1.05;
+  }
+
+  .ac-hero-scroll h1:nth-of-type(2) {
+    font-size: clamp(1.35rem, 6vw, 2.75rem) !important;
+    line-height: 1.1;
+  }
+
+  .ac-hero-divider-y {
+    margin-top: 0.35rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .ac-hero-slide-meta {
+    margin-bottom: 0.25rem !important;
+  }
+
+  .ac-hero-desc {
+    display: none;
+  }
+
+  .ac-hero-cta {
+    margin-top: 0.5rem !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem !important;
+  }
+
+  .ac-hero-cta button {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    padding-top: 0.65rem !important;
+    padding-bottom: 0.65rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  .ac-hero-dots {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin-top: 1rem;
+  }
+
+  .ac-hero-counter {
+    display: none !important;
+  }
+}
+
+@media (max-height: 620px) and (max-width: 767px) {
+  .ac-hero-side-arr {
+    display: none !important;
+  }
+}
